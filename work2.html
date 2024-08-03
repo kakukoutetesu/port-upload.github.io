@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio-1</title>
+    <link rel="stylesheet" href="reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 3.5rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-text h1 {
+            font-weight: 400;
+            font-size: 2rem;
+            letter-spacing: 0.5rem;
+            opacity: 0;
+            transform: translateY(50px) blur(20px);
+            animation: fadeInUpBlur 2s forwards;
+            animation-delay: 0.5s;
+        }
+
+        nav {
+            opacity: 0;
+            transform: translateY(50px) blur(20px);
+            animation: fadeInUpBlur 2s forwards;
+            animation-delay: 0.7s;
+        }
+
+
+        @keyframes fadeInUpBlur {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) blur(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) blur(0);
+            }
+        }
+
+
+        nav a,
+        .header-text a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 6rem;
+            font-family: 'Intel One', Arial, sans-serif;
+            font-weight: lighter;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            position: relative;
+            /* 确保伪元素位置相对于链接 */
+            padding-bottom: 5px;
+            /* 添加一些下边距，以便底线更明显 */
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0.5px;
+            background: white;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .one-inner {
+            width: 1000px;
+            margin: 0 auto;
+            height: 50vh;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px) blur(20px);
+            animation: fadeInUpBlur 2s forwards;
+            animation-delay: 1s;
+        }
+
+        .one-inner h1 {
+            font-family: 'Arial', sans-serif;
+            color: transparent;
+            -webkit-text-stroke: 1px #ffffff;
+            background: linear-gradient(90deg, #ffffff, #ffffff);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+            transition: color  3.5s ease, background-size 1.5s ease, letter-spacing 2s ease;
+            letter-spacing: 0.5rem;
+            font-size: 4rem;
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+
+
+        .one:hover  h1 {
+            color: #ffffff;
+            background-size: 100% 100%;
+            letter-spacing: 0.8rem;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .main-visual {
+            opacity: 0;
+            transform: translateY(50px) blur(20px);
+            animation: fadeInUpBlur 2.3s forwards;
+            animation-delay: 1.7s;
+            background-attachment: local;
+            height: 80vh;
+            background-image: url('./pic/bc1.png');
+            filter: brightness(0.7) blur(2px);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            background-attachment: fixed;
+        }
+
+        .main-visual h1 {
+            letter-spacing: 0.5rem;
+            color: transparent;
+            -webkit-text-stroke: 1px #ffffff;
+            background: linear-gradient(90deg, #ffffff, #ffffff);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+            transition: color 1s ease, background-size 1s ease, letter-spacing 1s ease;
+            color: #ffffff;
+            font-family: 'Intel One', Arial, sans-serif;
+            font-weight: lighter;
+            font-size: 4rem;
+            letter-spacing: 3px;
+            position: absolute;
+            bottom: 70px;
+            left: 70px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            z-index: 99;
+        }
+
+        .content {
+            position: relative;
+            background-color: transparent;
+            padding: 40px;
+            margin-top: -180px;
+
+        }
+
+        .intro {
+            display: flex;
+            align-items: flex-start;
+            border-color: #b1b1b1;
+            gap: 4rem;
+            height: 100vh;
+
+        }
+
+        .intro-image {
+            flex: 0 0 600px;
+            height: 600px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-top: 15rem;
+            background-image: url('./pic/work-flat3.jpg');
+            transition: transform 0.7s ease;
+            animation: autoShowAnimationy both;
+            animation-timeline: view(90% 5%);
+
+        }
+
+        .intro-image:hover {
+            transform: scale(1.05);
+        }
+
+
+        .intro-text {
+            padding-top: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            background-color: #1a1a1a;
+            flex: 1;
+            gap: 5rem;
+            animation: autoShowAnimationy both;
+            animation-timeline: view(70% 5%);
+        }
+
+        .intro-text h2 {
+            padding: 3rem;
+            font-size: 3rem;
+        }
+
+        .info {
+            padding: 1rem 2rem;
+        }
+        .intro-text span {
+            font-size: 1.3rem;
+            padding: 1rem;
+        }
+
+        .details {
+            width: 1000px;
+            margin: 10rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12rem;
+        }
+
+
+
+        .detail-item {
+            text-align: start;
+            animation: autoShowAnimation both;
+            animation-timeline: view(70% 5%);
+        }
+        .detail-item:hover {
+            transform: scale(1.05);
+        }
+
+        .detail-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 4.5rem;
+        }
+
+        .detail-item h3 {
+            font-size: 2rem;
+        }
+
+
+        .details .detail-item:nth-child(2) img {
+            object-fit: contain;
+        }
+
+        .details .detail-item:nth-child(2) {
+            animation: autoShowAnimation1 both;
+            animation-timeline: view(70% 5%);
+            align-self: flex-start;
+        }
+
+        .details .detail-item:nth-child(3) {
+
+            align-self: flex-start;
+        }
+
+        /* h1,
+        h2,
+        h3 {
+            margin-top: 0;
+            color: #2c2c2c;
+            font-weight: 400;
+        } */
+
+        p {
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+
+        }
+
+        .info strong {
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .intro {
+                flex-direction: column;
+            }
+
+            .intro-image {
+                width: 100%;
+                margin-top: -150px;
+            }
+
+            .content {
+                margin-top: -100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-visual h1 {
+                font-size: 2em;
+                bottom: 20px;
+                left: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+
+        .next-button {
+            font-family: 'Arial', sans-serif;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            padding: 5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7.3rem;
+            font-weight: bold;
+            letter-spacing: 0.5rem;
+            color: transparent;
+            -webkit-text-stroke: 1px #ffffff;
+            background: linear-gradient(90deg, #ffffff, #ffffff);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+            transition: color 1s ease, background-size 1s ease, letter-spacing 1s ease;
+        }
+
+        .next-button svg {
+            fill: #ffffff;
+            opacity: 0;
+            margin-left: 2rem;
+            transform: translateX(10);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease;
+        }
+
+        .arrow-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .arrow-container svg:nth-child(1) {
+            transition-delay: 0s;
+        }
+
+        .arrow-container svg:nth-child(2) {
+            margin-left: 5px;
+            transition-delay: 0.1s;
+        }
+
+        .arrow-container svg:nth-child(3) {
+            margin-left: 5px;
+            transition-delay: 0.2s;
+        }
+
+        .next-button:hover {
+            color: #ffffff;
+            background-size: 100% 100%;
+            letter-spacing: 1.5rem;
+        }
+
+        .next-button:hover svg {
+            opacity: 1;
+        }
+
+        .next-button:hover svg:nth-child(1) {
+            animation: arrowMove 2s ease-in-out infinite, fadeInOut 2s ease-in-out infinite;
+        }
+
+        .next-button:hover svg:nth-child(2) {
+            animation: arrowMove 2s ease-in-out infinite 0.1s, fadeInOut 2s ease-in-out infinite 0.1s;
+        }
+
+        .next-button:hover svg:nth-child(3) {
+            animation: arrowMove 2s ease-in-out infinite 0.2s, fadeInOut 2s ease-in-out infinite 0.2s;
+        }
+
+        @keyframes arrowMove {
+
+            0%,
+            20% {
+                transform: translateX(0);
+            }
+
+            70% {
+                transform: translateX(20px);
+            }
+
+            71% {
+                transform: translateX(-20px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInOut {
+
+            0%,
+            20% {
+                opacity: 1;
+            }
+
+            70% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .next {
+            animation: autoBLurAnimation linear both;
+            animation-timeline: view();
+            margin: 3rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            height: 80vh;
+        }
+
+        .next-title {
+            display: flex;
+            align-self: flex-end;
+        }
+
+        .next-title h2 {
+            font-weight: 300;
+            font-size: 2.5rem;
+            letter-spacing: 0.3rem;
+            text-transform: uppercase;
+        }
+
+        @keyframes autoShowAnimation {
+            from {
+                opacity: 0;
+                transform: translateX(200px) ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0) ;
+            }
+        }
+
+        @keyframes autoShowAnimation1 {
+            from {
+                opacity: 0;
+                transform: translateX(-200px) ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0) ;
+            }
+        }
+
+        @keyframes autoShowAnimationy {
+            from {
+                opacity: 0;
+                transform: translateY(200px) ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) ;
+            }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                clip-path: inset(100% 100% 0 0);
+            }
+
+            to {
+                opacity: 1;
+                clip-path: inset(0 0 0 0);
+            }
+        }
+
+
+        @keyframes autoBLurAnimation {
+            0% {
+                filter: blur(40px);
+            }
+
+            45%,
+            55% {
+                filter: blur(0px);
+            }
+
+            100% {
+                filter: blur(40px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <a href="main.html">
+                <h1>KOU HSIAO TSE</h1>
+            </a>
+        </div>
+        <nav>
+            <a href="main.html">Top</a>
+            <a href="contact.html">Contact</a>
+            <a href="qa.html">Q&A</a>
+        </nav>
+    </header>
+    <div class="one">
+        <div class="one-inner">
+            <h1>Business Card</h1>
+        </div>
+    </div>
+    <div class="main-visual">
+
+    </div>
+    <div class="container">
+        <div class="content">
+            <section class="intro">
+                <div class="intro-image"></div>
+                <div class="intro-text">
+                    <div class="info">
+                        <span>show my style</span>
+                        <span>date - 2023</span>
+                        <span>Illustrator / photoshop / figma</span>
+                    </div>
+                    <!-- <p>《和諧之舞》融合了東方哲學與西方抽象表現主義元素，通過豐富的色彩和動態的筆觸，展現了生命、能量和平衡的深刻思考。</p>
+                    <p>觀者可以在畫面中感受到自然與人文的和諧共存，每一個色彩的選擇和線條的走向都蘊含著對世界的獨特理解。</p> -->
+                </div>
+            </section>
+
+            <section class="details">
+                <div class="detail-item">
+                    <img src="./pic/bc1.png" alt="形式探索">
+                    <h3>Back of Business Card</h3>
+                    <p>A perspective view facing the distance, featuring a platform to symbolize the journey towards the future.</p>
+                </div>
+                <div class="detail-item">
+                    <img src="/pic/bc2.png" alt="質地細節">
+                    <h3>Front of Business Card</h3>
+                    <p>Creating a Simple 3D Visual Effect on a Flat Surface</p>
+                </div>
+                <!-- <div class="detail-item">
+                    <img src="/pic/port1.3.png" alt="質地細節">
+                    <h3>質地的魅力</h3>
+                    <p>近距離觀察可以發現豐富的肌理變化，這是多層次堆疊與刮擦技法的成果。</p>
+                </div> -->
+            </section>
+
+            <section class="next">
+                <a href="work3.html" class="next-button" aria-label="下一項">
+                    NEXT
+                    <div class="arrow-container">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+                        </svg>
+                    </div>
+                </a>
+                <div class="next-title">
+                    <h2>website design</h2>
+                </div>
+            </section>
+        </div>
+</body>
+
+</html>

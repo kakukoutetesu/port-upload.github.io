@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>極簡創意Loading畫面</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: monospace;
+            overflow: hidden;
+            transition: transform 1.8s;
+        }
+        .loader {
+            color: white;
+            font-size: 6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5rem;
+        }
+        .slide-out {
+            transform: translateY(100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">Loading_</div>
+
+    <script>
+        const loader = document.querySelector('.loader');
+        const text = loader.innerText;
+        let index = 0;
+
+        function animateText() {
+            if (index <= text.length) {
+                loader.innerText = text.substring(0, index) + '_';
+                index++;
+                setTimeout(animateText, 300);
+            } else {
+                loader.innerText = text; // 完成後顯示完整的 "Loading"
+            }
+        }
+
+        animateText();
+
+        // 過幾秒鐘後執行跳轉
+        setTimeout(() => {
+            document.body.classList.add('slide-out');
+        }, 2000); // 2.5秒的Loading時間，可以根據需要調整
+
+        // 在過渡效果結束後跳轉到main.html
+        document.body.addEventListener('transitionend', () => {
+            window.location.href = 'main.html';
+        });
+    </script>
+</body>
+</html>
